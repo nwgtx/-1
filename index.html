@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you be my valentine?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccc;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d63384;
+        }
+        img {
+            width: 200px;
+            height: auto;
+            margin: 20px 0;
+        }
+        .buttons {
+            position: relative;
+            height: 50px;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+        }
+        #yes {
+            background-color: #28a745;
+            color: white;
+            left: 25%;
+        }
+        #no {
+            background-color: #dc3545;
+            color: white;
+            right: 25%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">Will you be my valentine?❤️</h1>
+        <img id="gif" src="bunny1.gif" alt="Милый кролик">
+        <div class="buttons">
+            <button id="yes">yes</button>
+            <button id="no">no</button>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const noButton = document.getElementById("no");
+            const yesButton = document.getElementById("yes");
+            const gif = document.getElementById("gif");
+            const title = document.getElementById("title");
+
+            // Функция для перемещения кнопки "Нет"
+            noButton.addEventListener("mouseover", function () {
+                let maxX = window.innerWidth - noButton.clientWidth - 20;
+                let maxY = window.innerHeight - noButton.clientHeight - 20;
+                let x = Math.random() * maxX;
+                let y = Math.random() * maxY;
+
+                noButton.style.position = "absolute";
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+            });
+
+            // При нажатии на "Да" — смена GIF и текста
+            yesButton.addEventListener("click", function () {
+                gif.src = "bunny2.gif"; // Замени на вторую гифку
+                title.textContent = "Урааааа! ❤️😘"; // Меняем текст
+            });
+        });
+    </script>
+</body>
+</html>
